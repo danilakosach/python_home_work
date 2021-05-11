@@ -1,0 +1,43 @@
+1)
+from datetime import datetime
+current_datetime = datetime.now()
+print(current_datetime.second,'сек') 
+print(current_datetime.minute,'мин',':',current_datetime.second,'сек') 
+print(current_datetime.hour,'час',':',current_datetime.minute,'мин',':',current_datetime.second,'сек')
+
+2)
+def sum_digits(value): # создаем функцию сумма_цифр с аргументом value
+    cube = 0  # создаем переменную куб и присваеваем ей 0 значение
+
+    while value != 0: # если аргумент не равен 0, выполняем 2 
+                      # последующие строчки кода
+        cube += value % 10
+        value //= 10
+
+    return cube # возвращаем значение куба в случае не 
+                # возможности выполнить предидущие операции
+
+
+arr = [i**3 for i in range(1, 1001, 2)]# Создаем список с вложенным циклом в котором
+                                       # будем перебирать элементы с 1 по 1000 не включая 1001
+                                       # с шагом 2
+
+cube1 = sum(filter(lambda num: sum_digits(num) % 7 == 0, arr)) 
+cube2 = sum(filter(lambda num: sum_digits(num + 17) % 7 == 0, arr))
+
+print(cube1)
+print(cube2)
+
+3)
+for procent_count in range(0, 21):
+    remainder = procent_count % 10
+    if procent_count == 0:
+        print('0 процентов')
+    elif remainder==0 or remainder>=5:    
+        print(procent_count,'процентов')
+    elif procent_count>=11:
+        print(procent_count,'процентов')
+    elif remainder==1 or remainder==20 :
+        print(procent_count,'процент')
+    elif remainder>1:   
+        print(procent_count,'процента')
